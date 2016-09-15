@@ -1,0 +1,10 @@
+I"«(function() {
+  JQuery(function() {
+    return $('#test').click(function(event) {
+      event.preventDefault();
+      return alert('testx');
+    });
+  });
+
+}).call(this);
+:ET

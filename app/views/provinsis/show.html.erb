@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @provinsi.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @provinsi.name %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @provinsi.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_provinsi_path(@provinsi) %> |
+<%= link_to 'Back', provinsis_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @setting.id %>
+</p>
+
+<p>
+  <strong>Nama aplikasi:</strong>
+  <%= @setting.nama_aplikasi %>
+</p>
+
+<p>
+  <strong>Email default:</strong>
+  <%= @setting.email_default %>
+</p>
+
+<p>
+  <strong>Alamat:</strong>
+  <%= @setting.alamat %>
+</p>
+
+<p>
+  <strong>Default password:</strong>
+  <%= @setting.default_password %>
+</p>
+
+<p>
+  <strong>Zopim:</strong>
+  <%= @setting.zopim %>
+</p>
+
+<p>
+  <strong>Site status:</strong>
+  <%= @setting.site_status %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

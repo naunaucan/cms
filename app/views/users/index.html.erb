@@ -1,0 +1,124 @@
+<%= render "layouts/admin/header" %> <!-- render header -->
+<body class="skin-bright-blue fixed">
+    <div class="wrapper">
+      <%= render "layouts/admin/nav_top" %> <!-- render header -->
+
+      <%= render "layouts/admin/nav_left" %> <!-- render left navigation -->
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            <%= @title %>
+            <small>Users Management</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-bar-chart-o"></i> Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li class="active">List</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+           <% if flash[:notice] %>
+                <div class="alert alert-success alert-dismissable">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <b><i class="fa fa-bullhorn"></i> </b> <%= flash[:notice] %>
+            </div>
+            <% end %>
+
+            <% if flash[:alert] %>
+            <div class="alert alert-error alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <b><i class="fa fa-bullhorn"></i> </b> <%= flash[:alert] %>
+            </div>
+            <% end %>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+
+                <div class="box-header">
+                  <h3 class="box-title">Listing</h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body table-responsive no-padding">
+
+                  <table class="table table-hover">
+                    <tr>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Roles</th>
+                      <th>Created At</th>
+                      <th>#</th>
+                    </tr>
+                    <% @user.each do |user| %>
+                    <tr>
+	                   <td>
+                     <%= link_to(edit_user_path(user.id),data:{disable_with:'Loading....'}) do %>
+                      <%= user.username %>
+                     <% end %>
+                     </td>
+	    			         <td><%= user.email %></td>
+                     <td>
+                     <% if user.role.name == "admin" || user.role.name == "super_admin" %>
+                     <span class="label bg-blue"><%= user.role.name %></span>
+                     <% else %>
+                     <span class="label bg-green"><%= user.role.name %></span>
+                     <% end %>
+                     </td>
+                     <td>
+                     <%= user.created_at %>
+                     </td>
+      	    			   <td>
+
+                     <%= link_to(reset_user_path(user.id), :confirm => 'Are you sure?',data:{disable_with:'Loading....'}) do %>
+                      <span class="label bg-red">Reset Password</span>
+                     <% end %>
+
+                     &nbsp;
+                     <% if current_user.id != user.id %>
+                     <%= link_to(user, :confirm => 'Are you sure?', :method => :delete,data:{disable_with:'Loading....'}) do %>
+                      <span class="label bg-red">Delete</span>
+                     <% end %>
+                     &nbsp;
+                     <% if user.is_active == true %>
+                      <% @stat = false %>
+                       <%= link_to(active_user_path(user.id,:is_active => @stat),data:{disable_with:'Loading....'}) do %>
+
+                        <span style="color:green;">
+                          <i class="fa fa-check-circle"></i>
+
+                        </span>
+                      <% end %>
+                      <% else %>
+                      <% @stat = true %>
+                      <%= link_to(active_user_path(user.id,:is_active => @stat), data:{disable_with:'Loading....'}) do %>
+                      <span style="color:gray;">
+                        <i class="fa fa-minus-square "></i>
+                      </span>
+                      <% end %>
+                      <% end %>
+                      <% end %>
+      	    			   </td>
+                    </tr>
+                    <% end %>
+
+
+                  </table>
+
+                </div><!-- /.box-body -->
+               	<div class="box-footer clearfix">
+                  <%= will_paginate @user, :renderer => BootstrapPagination::Rails,class:'pagination pagination-sm no-margin pull-right' %>
+                </div>
+              </div><!-- /.box -->
+            </div>
+          </div>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      <%= render "layouts/admin/js" %>
+     <%= render "layouts/admin/footer" %> <!-- render footer -->
+    </div><!-- ./wrapper -->
+	</body>
+</html>

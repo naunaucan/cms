@@ -1,0 +1,60 @@
+<% if params[:controller] != 'session' %>
+
+<footer class="main-footer">
+   <div class="pull-right hidden-xs">
+     <b>Version</b> 1.0
+   </div>
+   <strong>Copyright &copy; 2015 <a href="#">Disperindag Kalimantan Barat</a>.</strong> All rights reserved.
+ </footer>
+
+
+<script>
+// left
+$(function() {
+ var menu = "<%= params[:controller]%>";
+
+ if (menu == "profiles" || menu == "blogs" || menu == "blogs" || menu == "products" || menu == "tickets") {
+   SelectedToogleItem("myprofiles");
+ } else if (menu == "categories" || menu == "kota" || menu == "provinsis") {
+   SelectedToogleItem("master");
+ } else if (menu == "roles" || menu == "users" || menu == "home_pages" || menu == "settings") {
+   SelectedToogleItem("systems");
+ }
+ SelectedMenuItem(menu);
+
+ console.log(menu);
+
+});
+
+// menu top
+$(function() {
+ // define controller name
+ var name = "<%= params[:controller] %>";
+
+ if (name != "profiles") {
+   $('#navigasi').show();
+   $('#add').show();
+   if (name == "tickets") {
+     $('#name-button').html('<i class="glyphicon glyphicon-open"></i> Open Ticket');
+     $('#add').attr("href","/"+name+"/new");
+   } else if (name == "kota") {
+     $('#name-button').html('<i class="glyphicon glyphicon-floppy-saved"></i> New < select provinsi first >');
+     $('#add').attr("href","/provinsis");
+   } else if (name == "settings") {
+     $('#add').hide();
+   } else {
+     $('#add').attr("href","/"+name+"/new");
+     $('#name-button').html('<i class="glyphicon glyphicon-floppy-saved"></i> New');
+   }
+   // refresh page / load all data
+   $('#refresh').attr("href","/"+name+"");
+
+ } else {
+   $('#navigasi').hide();
+ }
+
+
+});
+</script>
+<% end %>
+</html>

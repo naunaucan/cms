@@ -1,0 +1,89 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+      <!-- search form -->
+      <form accept-charset="UTF-8" class="sidebar-form">
+          <div class="input-group">
+              <input class="form-control" id="search" name="search" placeholder="Filter menu..." type="text">
+              <span class="input-group-btn">
+                  <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-filter"></i></button>
+              </span>
+          </div>
+      </form>  <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+          <!-- <li class="dashboard treeview menu-open" id="side-menu" style="display:block;">
+              <a href="#/dashboard/index">
+                  <span>Dashboard</span>
+              </a>
+          </li> -->
+
+
+          <!-- end users -->
+          <!-- purpose to just admin  -->
+          <!-- master data -->
+          <li class="master treeview" id="master-menu">
+              <a href="#">
+                  <i class="fa fa-angle-down"></i>
+                  <span>Master</span>
+              </a>
+              <ul class="master treeview-menu" style="display:none;">
+                  <li id="list-menu" class="units">
+                      <a href="#/unit/index">
+                          Units
+                      </a>
+                  </li>
+
+              </ul>
+          </li>
+
+
+          <li class="systems treeview menu-open" id="side-menu" style="display:block;">
+              <a href="#">
+                  <i class="fa fa-angle-down"></i>
+                  <span>Systems</span>
+              </a>
+              <ul class="systems treeview-menu menu-open active" style="display:block;">
+                  <li id="list-menu" class="users">
+                      <a href="#/users/index">
+                          Users
+                      </a>
+                  </li>
+                  <li id="list-menu" class="roles">
+                      <a href="#/roles/index">
+                          Roles
+                      </a>
+                  </li>
+
+                  <li id="list-menu" class="modules">
+                      <a href="#/modules/index">
+                          Modules
+                      </a>
+                  </li>
+
+                  <li id="list-menu" class="menus">
+                      <a href="#/menus/index">
+                          Dynamic Menu
+                      </a>
+                  </li>
+
+                  <li id="list-menu" class="securitys">
+                      <a href="#/securitys/index">
+                          Security
+                      </a>
+                  </li>
+
+                  <li id="list-menu" class="settings">
+                      <a href="#/settings/index">
+                          Settings
+                      </a>
+                  </li>
+
+              </ul>
+          </li>
+          <!-- end of access just admin -->
+
+
+      </ul>
+  </section>
+</aside>
+<!-- /.sidebar -->

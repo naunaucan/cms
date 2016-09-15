@@ -1,0 +1,153 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+  <!-- search form -->
+  <%= form_tag("/"+params[:controller], method: "get",class:'sidebar-form') do %>
+    <div class="input-group">
+      <%= text_field_tag :search, nil,class:'form-control',placeholder:'Search...' %>
+      <span class="input-group-btn">
+        <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+      </span>
+    </div>
+  <% end %>
+  <!-- /.search form -->
+  <!-- sidebar menu: : style can be found in sidebar.less -->
+  <ul class="sidebar-menu">
+      <!-- <li class="dashboard treeview menu-open" id="side-menu" style="display:block;">
+      <a href="dashboard#/dashboard/index">
+        <i class="fa fa-bar-chart-o"></i> <span>Dashboard</span>
+      </a>
+    </li> -->
+
+
+    <li class="myprofiles treeview" id="myprofiles-menu" >
+      <a href="#">
+        <span>My Profile</span>
+        <i class="fa fa-angle-right pull-left"></i>
+      </a>
+      <ul class="myprofiles treeview-menu" >
+        <li id="list-menu" class="profiles ">
+          <% if @role_name != "admin" %>
+            <%= link_to("/profiles") do %>
+             Profile
+            <% end %>
+          <% else %>
+            <%= link_to("/profiles") do %>
+             Manage Profile
+              <small class="label pull-right bg-red" id="ticket-menu-left">3</small>
+            <% end %>
+
+          <% end %>
+        </li>
+        <li id="list-menu" class="products">
+          <% if @role_name != "admin" %>
+            <%= link_to products_path do %>
+             Product
+            <% end %>
+          <% else %>
+            <%= link_to products_path do %>
+             Manage Product
+              <small class="label pull-right bg-red" id="ticket-menu-left">3</small>
+            <% end %>
+          <% end %>
+        </li>
+        <li id="list-menu" class="blogs ">
+          <% if @role_name != "admin" %>
+            <%= link_to blogs_path do %>
+             Blogs
+            <% end %>
+          <% else %>
+             <%= link_to blogs_path do %>
+             Manage Blogs
+              <small class="label pull-right bg-red" id="ticket-menu-left">3</small>
+            <% end %>
+          <% end %>
+        </li>
+
+        <li id="list-menu" class="tickets ">
+          <% if @role_name != "admin" %>
+            <%= link_to("/tickets") do %>
+             Send Ticket
+            <% end %>
+          <% else %>
+            <%= link_to("/tickets") do %>
+             Manage Ticket
+              <small class="label pull-right bg-red" id="ticket-menu-left">3</small>
+            <% end %>
+
+          <% end %>
+        </li>
+
+
+      </ul>
+    </li>
+
+    <!-- end users -->
+
+    <% if @role_name == "admin" %> <!-- purpose to just admin  -->
+    <!-- master data -->
+    <li class="master treeview" id="master-menu">
+      <a href="#">
+        <span>Master</span>
+        <i class="fa fa-angle-right pull-left"></i>
+      </a>
+      <ul class="master treeview-menu">
+      <li id="list-menu" class="categories">
+          <%= link_to("/categories") do %>
+           Categories</a>
+          <% end %>
+      </li>
+      <li id="list-menu" class="provinsis">
+            <%= link_to("/provinsis") do %>
+             Provinsi</a>
+            <% end %>
+        </li>
+      <li id="list-menu" class="kota">
+          <%= link_to("/kota") do %>
+           Kota</a>
+          <% end %>
+      </li>
+
+      </ul>
+    </li>
+
+
+    <li class="systems treeview" id="side-menu">
+      <a href="#">
+        <span>Systems</span>
+        <i class="fa fa-angle-right pull-left"></i>
+      </a>
+      <ul class="systems treeview-menu">
+        <li id="list-menu" class="users">
+          <%= link_to("/users") do %>
+           Users</a>
+          <% end %>
+        </li>
+        <li id="list-menu" class="roles">
+          <%= link_to("/roles") do %>
+           Roles</a>
+          <% end %>
+        </li>
+
+        <li id="list-menu" class="home_pages">
+          <%= link_to('/pages') do %>
+           Home Templates</a>
+          <% end %>
+        </li>
+
+        <li id="list-menu" class="settings">
+          <%= link_to(settings_path) do %>
+           Configurasi</a>
+          <% end %>
+        </li>
+
+      </ul>
+    </li>
+    <% end %> <!-- end of access just admin -->
+
+
+  </ul>
+</section>
+<!-- /.sidebar -->
+</aside>

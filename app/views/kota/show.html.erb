@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @kotum.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @kotum.name %>
+</p>
+
+<p>
+  <strong>Provinsi:</strong>
+  <%= @kotum.provinsi_id %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @kotum.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_kotum_path(@kotum) %> |
+<%= link_to 'Back', kota_path %>

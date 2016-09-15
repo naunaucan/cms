@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @conversation.id %>
+</p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @conversation.ticket_id %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @conversation.avatar %>
+</p>
+
+<p>
+  <strong>Numbering:</strong>
+  <%= @conversation.numbering %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @conversation.user_id %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @conversation.message %>
+</p>
+
+<p>
+  <strong>Is read:</strong>
+  <%= @conversation.is_read %>
+</p>
+
+<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to 'Back', conversations_path %>

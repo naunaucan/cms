@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Kota</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Provinsi</th>
+      <th>Is active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kota.each do |kotum| %>
+      <tr>
+        <td><%= kotum.id %></td>
+        <td><%= kotum.name %></td>
+        <td><%= kotum.provinsi_id %></td>
+        <td><%= kotum.is_active %></td>
+        <td><%= link_to 'Show', kotum %></td>
+        <td><%= link_to 'Edit', edit_kotum_path(kotum) %></td>
+        <td><%= link_to 'Destroy', kotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Kotum', new_kotum_path %>

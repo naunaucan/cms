@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @product.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Harga:</strong>
+  <%= @product.harga %>
+</p>
+
+<p>
+  <strong>Keterangan:</strong>
+  <%= @product.keterangan %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @product.is_active %>
+</p>
+
+<p>
+  <strong>Views:</strong>
+  <%= @product.views %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @product.user_id %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @product.picture_id %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @product.slug %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
